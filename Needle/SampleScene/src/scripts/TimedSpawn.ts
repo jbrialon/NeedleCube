@@ -23,7 +23,8 @@ export class TimedSpawn extends Behaviour {
     *spawn() {
         if (!this.object) return;
         while (this.spawned < this.max) {
-            const instance = GameObject.instantiate(this.object, new Vector3(Math.random() * 10, Math.random() * 10, Math.random() * 10));
+            const position = new Vector3((Math.random() * 20) - 10,(Math.random() * 20) + 15, (Math.random() * 20) - 10)
+            const instance = GameObject.instantiate(this.object, position);
             GameObject.setActive(instance!, true);
             this.spawned += 1;
             yield WaitForSeconds(this.interval / 1000);
